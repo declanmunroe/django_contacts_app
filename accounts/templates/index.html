@@ -14,8 +14,20 @@
         <li><a href="/logout">Logout</a></li>
         {% else %}
         <li><a href="/login">Login</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a href="/register">Register</a></li>
         {% endif %}
+    </ul>
+    
+    {% if request.user.is_authenticated %} only show the line below when a user is logged in. When logged out the line will not display
+    <p>You are logged in as {{ request.user.email }}</p>
+    {% endif %}
+    
+    <ul>
+        {% for contact in contacts %}
+        <li>
+            {{ contact }}
+        </li>
+        {% endfor %}
     </ul>
 </body>
 </html>
